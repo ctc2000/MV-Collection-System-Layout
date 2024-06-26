@@ -1,6 +1,6 @@
 # MV Collection System Mapping
 
-This tool supports the initial design process for MV Collection Systems of wind farms. 
+This tool supports the initial design process for MV Collection Systems of terrestrial wind farms. 
 
 ### Input
 Coordinates of a wind turbine generator (WTG) array and substation in CSV format.
