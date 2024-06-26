@@ -18,7 +18,7 @@ KML layout with load and turbine location data embedded.
 ### Problem Statement
 An optimal WTG network should theoretically be designed as a capacitated minimum spanning tree (CMST). This is a minimum spanning tree with the following attributes:
 - A root node, which is the central hub of the network
-- The number of nodes on branches of trees must not exceed a capacity value
+- The number of nodes on branches of the tree must not exceed a capacity value
 
 The CMST is applied to networking problems in which balanced sub-networks are connected to a central hub: computer networking and communications, transportation routes, as well as cable trenching. Finding the CMST is an NP-hard combinatorial optimization problem. 
 
