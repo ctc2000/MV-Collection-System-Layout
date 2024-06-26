@@ -2,10 +2,10 @@
 
 This notebook supports the initial design process for MV Collection Systems of wind farms. 
 
-###Input
+### Input
 Coordinates of a WTG array and substation in CSV format.
 
-###Output
+### Output
 KML layout with power load and turbine location data embedded
 
 Outcomes
