@@ -9,7 +9,7 @@ Coordinates of a wind turbine generator (WTG) array and substation in CSV format
 KML layout with load and turbine location data embedded.
 
 ### Outcomes
-1. Initial KML file for MV Collection System design. Edit the cable routes further in any GIS tool to avoid obstacles, crossings, and restricted land.
+1. Initial KML file for MV Collection System design. Edit the cable routes further in any GIS tool to avoid obstacles, crossings, and restricted land parcels.
 2. Automated cable sizing and cable schedule creation.
 
 
