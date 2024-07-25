@@ -1,12 +1,12 @@
 # MV Collection System Mapping
 
-This tool supports the initial design process for MV Collection Systems of terrestrial wind farms. 
+This tool supports the medium voltage collection system design process for terrestrial wind farms. 
 
 ### Input
 Coordinates of a wind turbine generator (WTG) array and substation in CSV format.
 
 ### Output
-KML layout with load and turbine location data embedded.
+KML layout with power load and turbine location data embedded.
 
 ### Outcomes
 1. Initial KML file for MV Collection System design. Edit the cable routes further in any GIS tool to avoid obstacles, crossings, and restricted land parcels.
@@ -20,16 +20,18 @@ An optimal WTG network should theoretically be designed as a capacitated minimum
 - A root node, which is the central hub of the network
 - The number of nodes on branches of the tree must not exceed a capacity value
 
-An additional requirement for terrestrial wind farms is to avoid all crossing paths so that cable trenching is feasible
+An additional requirement for terrestrial wind farms is to avoid all crossing paths so that cable trenching is feasible.
 
-The CMST is applied to networking problems in which a central hub is connected to sub-networks with balanced loads. Examples include computer networking and communications, transportation route planning, as well as cable trenching. Finding the CMST is an NP-hard combinatorial optimization problem with no efficient solution algorithms. While heuristics exist to find suboptimal CMST's, these do not satisfy the land-based constraints for practical WTG network design.
+The CMST is applied to networking problems in which a central hub is connected to sub-networks with balanced loads. Examples include computer networking and communications, transportation route planning, as well as cable routing. Finding the CMST is an NP-hard combinatorial optimization problem with no efficient solution algorithms. While heuristics exist to find suboptimal CMST's, these do not satisfy the land-based constraints for designing practical medium voltage cable networks.
 
 ### Solution
-Due to land control, roads, wetlands, buildings, and further geotechnical constraints, terrestrial MV collection system layouts require a thoughtful design process. This tool provides clustering and MST visualizations to guide the layout. Then, user input of WTG groups allows flexibility for project-specific constraints. Finally, MST algorithms are used to connect each group of WTG's to the substation, and a KML file is produced.
+Due to land control, roads, wetlands, buildings, and further geotechnical constraints, terrestrial MV collection system layouts require a thoughtful design process. This tool provides MST and suboptimal CMST visualizations to guide the layout. Then, user input of WTG groups allows flexibility for project-specific constraints. Finally, MST algorithms are used to connect each group of WTG's to the substation, and a KML output file is produced.
 
 # Sample Workflow
 
 ### Turbine and Substation Coordinates (CSV)
+
+![Description](Images/col_08.png)
 
 ### Output KML
 
