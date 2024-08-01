@@ -1,32 +1,34 @@
-# MV Collection System Mapping
+# MV Collection System Layout
 
-This tool supports the medium voltage collection system design process for terrestrial wind farms.
+This tool supports the medium voltage collection system design process for terrestrial wind farms. 
+
+Open an [example project](workbook_sq.ipynb) to view the design process. See [collection_mapper](collection_mapper.ipynb) for the blank Jupyter notebook. 
 
 ### Input
-Latitude/longitude coordinates of a wind turbine generator (WTG) array and substation in CSV format.
+Latitude/longitude coordinates of a wind turbine array and substation in CSV format.
 
 ### Output
-KML map file with power load and turbine location data embedded.
+KML map file with circuit loading and turbine location data embedded.
 
 ### Outcomes
-1. Initial map of the medium voltage collection system created as a KML map file. Edit the cable routes further in any geographic visualization software.
+1. Initial layout for the medium voltage collection system created as a KML map file. Edit the cable routes further in any geographic visualization software.
 2. Automated cable sizing and cable schedule creation.
-3. Necessary inputs generated for drawing the single line diagram and conducting electrical system studies.
+3. Necessary inputs generated for drawing the single line diagram and completing electrical system studies.
 
 
 # Capacitated Minimum Spanning Tree Problem
 
 ### Problem Statement
-An optimal WTG network should theoretically be designed as a capacitated minimum spanning tree (CMST). This is a minimum spanning tree with the following attributes:
+A medium voltage collection system connects all wind turbine generators (WTG's) to a central substation, and then interconnects to the power grid. An optimal collection system should theoretically be designed as a capacitated minimum spanning tree (CMST). This is a minimum spanning tree with the following attributes:
 - A root node, which is the central hub of the network
 - The number of nodes on branches of the tree must not exceed a capacity value
 
 An additional requirement for terrestrial wind farms is to avoid all crossing paths so that cable trenching is feasible.
 
-The CMST is applied to networking problems in which a central hub is connected to sub-networks with balanced loads. Examples include computer networking and communications, transportation route planning, as well as cable routing. Finding the CMST is an NP-hard combinatorial optimization problem with no efficient solution algorithms. While heuristics exist to solve suboptimal CMST's, these do not satisfy the land-based constraints for designing practical medium voltage cable networks.
+The CMST is applied to networking problems in which a central hub is connected to sub-networks with balanced loads. Examples include computer networking and communications, transportation route planning, as well as cable routing. Finding the CMST is an NP-hard combinatorial optimization problem with no efficient solution algorithms. While heuristics exist to solve suboptimal CMST's, these do not satisfy the land-based constraints for designing practical underground cable networks.
 
 ### Solution
-Due to land control, roads, wetlands, buildings, and further geotechnical constraints, terrestrial MV collection system layouts require a thoughtful design process. This tool provides MST and suboptimal CMST visualizations to guide the layout. Then, user input of WTG groups allows flexibility for project-specific constraints. Finally, MST algorithms are used to connect each group of WTG's to the substation, and a KML output file is produced.
+Due to land control, roads, wetlands, buildings, and further geotechnical constraints, terrestrial MV collection system layouts require a thoughtful design process. This tool provides MST and suboptimal CMST visualizations to guide the layout. Then, user input of WTG groups allows flexibility for site-specific constraints. Finally, MST algorithms are used to connect each group of WTG's to the substation, and a KML output file is produced.
 
 # Sample Workflow
 
@@ -49,7 +51,7 @@ After the user inputs desired WTG groupings, the following will be generated:
 
 - MST's connecting each group to the substation
 - Circuit loading calculations embedded in the KML data
-- Output KML (shown visualized in Google Earth Pro)
+- Output KML (visualized in Google Earth Pro)
 
 ![?](Images/col_07.png)
 
@@ -62,7 +64,7 @@ The minimum spanning tree paths need to be adjusted to accomodate routing issues
 - Align paths in parallel where possible to minimize disturbance
 - Route paths along the edges of parcels and near roads in cost-efficient cases
 
-In addition, 3-way junction boxes are placed at diverging paths, and 2-way junction boxes are placed on cable segments longer than 8500 ft. 
+In addition, 3-way junction boxes are placed at diverging paths, and 2-way junction boxes are placed on cable segments longer than 10,000 ft. 
 
 ![?](Images/col_08.png)
 
@@ -72,7 +74,7 @@ The following cable schedule is generated to be included in construction plans. 
 ![?](Images/col_04.png)
 
 ### MV Collection System Single Line Diagram
-A single line diagram can then be drawn according to the collection system paths. This is also included in construction plans, and necessary for completing electrical studies outlined in the section below.
+A single line diagram is then drawn accordingly to be included in construction plans. This is also used to model the system in electrical studies outlined below.
 
 ![?](Images/col_05.png)
 
