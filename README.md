@@ -30,26 +30,47 @@ Due to land control, roads, wetlands, buildings, and further geotechnical constr
 # Sample Workflow
 
 ### Turbine and Substation Coordinates (CSV)
+Given a turbine array, use spatial analysis software (Global Mapper or Google Earth Pro) to generate a CSV containing longitude/latitude coordinates for the project.
 
-![WTG Array](Images/col_09.png) 
 ![Cable Schedule](Images/col_10.png)
 
-![MST](Images/col_00.png)
-![CMST](Images/col_01.png)
+The program will generate a minimum spanning tree (left) and a suboptimal capacitated minimum spanning tree (right) to guide user input of WTG groupings. The MST is generated using Kruskal's algorithm from the NetworkX library. The suboptimal CMST with no crossings is generated according to Sharma's heuristic.<sup>1</sup>
 
+![MST](Images/col_06.png)
+
+<sup>1</sup> Sharma RL, El-Bardai MT (1970) _Suboptimal communications network synthesis_. Proceedings 1970 International Conference on Communications.
 
 ### Output KML
+
+After the user inputs desired WTG groupings, the following will be generated:
+
+- MST's connecting each group to the substation
+- Circuit loading calculations embedded in the KML data
+- Output KML (shown visualized in Google Earth Pro)
+
 ![?](Images/col_07.png)
 
 
 
 ### Adjust Cable Routes & Add Junction Boxes
+The minimum spanning tree paths need to be adjusted to accomodate routing issues for terrestrial cable networks:
+- Avoid residences, floodplains & water features, land parcels without lease agreements, slopes above 12%, and other obstacles
+- Bore across roads and rivers perpendicularly to minimize distance
+- Align paths in parallel where possible to minimize disturbance
+- Route paths along the edges of parcels and near roads in cost-efficient cases
+
+In addition, 3-way junction boxes are placed at diverging paths, and 2-way junction boxes are placed on cable segments longer than 8500 ft. 
+
 ![?](Images/col_08.png)
 
 ### Automated Cable Schedule Creation
+The following cable schedule is generated to be included in construction plans. Only one circuit is shown.
+
 ![?](Images/col_04.png)
 
 ### MV Collection System Single Line Diagram
+A single line diagram can then be drawn according to the collection system paths. This is also included in construction plans, and necessary for completing electrical studies outlined in the section below.
+
 ![?](Images/col_05.png)
 
 # Electrical Studies
@@ -74,9 +95,9 @@ Evaluate the fault current contributions and verify that equipment is rated to w
 
 ![?](Images/sc_study.png)
 
-### Energy Loss Estimate
+### Loss Study
 
-Evaluate energy generation and value engineering opportunities.
+Evaluate energy generation at the point of interconnection and value engineering opportunities.
 
 ![?](Images/loss_study.png)
 
