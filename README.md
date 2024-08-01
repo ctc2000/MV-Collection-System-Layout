@@ -1,16 +1,17 @@
 # MV Collection System Mapping
 
-This tool supports the medium voltage collection system design process for terrestrial wind farms. 
+This tool supports the medium voltage collection system design process for terrestrial wind farms.
 
 ### Input
-Coordinates of a wind turbine generator (WTG) array and substation in CSV format.
+Latitude/longitude coordinates of a wind turbine generator (WTG) array and substation in CSV format.
 
 ### Output
 KML map file with power load and turbine location data embedded.
 
 ### Outcomes
-1. Initial KML file for MV Collection System design. Edit the cable routes further in any GIS tool to avoid obstacles, crossings, and restricted land parcels.
+1. Initial map of the medium voltage collection system created as a KML map file. Edit the cable routes further in any geographic visualization software.
 2. Automated cable sizing and cable schedule creation.
+3. Necessary inputs generated for drawing the single line diagram and conducting electrical system studies.
 
 
 # Capacitated Minimum Spanning Tree Problem
@@ -29,12 +30,14 @@ Due to land control, roads, wetlands, buildings, and further geotechnical constr
 
 # Sample Workflow
 
-### Turbine and Substation Coordinates (CSV)
+### Turbine and Substation Coordinates
 Given a turbine array, use spatial analysis software (Global Mapper or Google Earth Pro) to generate a CSV containing longitude/latitude coordinates for the project.
 
 ![Cable Schedule](Images/col_10.png)
 
-The program will generate a minimum spanning tree (left) and a suboptimal capacitated minimum spanning tree (right) to guide user input of WTG groupings. The MST is generated using Kruskal's algorithm from the NetworkX library. The suboptimal CMST with no crossings is generated according to Sharma's heuristic.<sup>1</sup>
+The program will generate a minimum spanning tree (left) and a suboptimal capacitated minimum spanning tree (right) to guide user input of WTG groupings. Due to site-specific variables, user input is desired for the final grouping rather than any theoretically optimal configuration. 
+
+The MST is generated using Kruskal's algorithm from the NetworkX library. The suboptimal CMST with no crossings is programmed and generated according to Sharma's heuristic.<sup>1</sup>
 
 ![MST](Images/col_06.png)
 
