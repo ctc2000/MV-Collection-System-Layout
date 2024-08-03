@@ -1,6 +1,6 @@
 # MV Collection System Layout
 
-This tool supports the medium voltage collection system design process for terrestrial wind farms. 
+This tool supports the medium voltage collection system design process for terrestrial wind farms. A capacitated minimum spanning tree problem is used to help optimize the design. 
 
 Open an [example project](workbook_sq.ipynb) to view the design process. See [collection_mapper](collection_mapper.ipynb) for the blank Jupyter notebook. 
 
